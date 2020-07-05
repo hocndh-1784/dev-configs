@@ -34,7 +34,7 @@ nnoremap <silent> <C-b> :NERDTreeToggle<CR>
 set splitright
 set splitbelow
 " turn terminal to normal mode with escape
-tnoremap <Esc> <C-\><C-n>
+tnoremap <Esc> <C-\><C-`>
 " start terminal in insert mode
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " open terminal on ctrl+n
@@ -57,3 +57,10 @@ let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 let g:python3_host_prog = '/usr/bin/python3'
 
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
