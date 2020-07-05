@@ -5,6 +5,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'deoplete-plugins/deoplete-jedi'
+
 
 call plug#end()
   "Config Section
@@ -47,4 +51,9 @@ let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit'
   \}
+
+"Ignore .gitignore
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
+let g:python3_host_prog = '/usr/bin/python3'
 
